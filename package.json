@@ -1,0 +1,22 @@
+{
+  "name": "it_support",
+  "version": "1.0.0",
+  "description": "IT ticketing system to keep track of service requests.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arde1369/it_support.git"
+  },
+  "author": "Arash Dehdari",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "material-design-lite": "^1.3.0",
+    "mysql": "^2.16.0"
+  }
+}

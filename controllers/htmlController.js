@@ -7,4 +7,10 @@ module.exports = function(app){
     app.get('/', function(req, res){
         res.render('index');
     });
+    app.get('/createTicket', function(req,res){
+        res.render('createTicket');
+    });
+    app.get('/admin_index', function(req,res){
+        res.render('adminLogin');
+    });
 }

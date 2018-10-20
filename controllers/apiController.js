@@ -2,6 +2,7 @@ var bodyParser = require('body-parser');
 var tickets = require('../models/ticket');
 var date = Date.now();
 var alert = require('alert-node');
+var _debug = false;
 
 module.exports = function(app){
     app.use(bodyParser.json());
@@ -24,17 +25,29 @@ module.exports = function(app){
             urgent: toggleStatus,
             date: date
         });
-        console.log(newTicket);
+        if (_debug){
+            console.log(newTicket);
+        }
         newTicket.save(function(err){
             if (err){
                 throw error;
             }
             else{
-                alert(`Ticket successfully created.\nTicket ID: ${newTicket._id}`);
+                alert(`\nTicket successfully created.\n\nTicket ID: ${newTicket._id}`);
+                if (_debug){
+                    console.log(`\nTicket successfully created.\n\nTicket ID: ${newTicket._id}`);
+                }
                 res.redirect(req.get('referer'));
-                //res.send(`Ticket successfully created.\nTicket ID: ${newTicket._id}`);
             }
-            //res.send(`Ticket successfully created.\nTicket ID: ${newTicket._id}`);
+        });
+    });
+
+    app.post('/api/checkStatus',function(req,res){
+        tickets.find({_id: req.body.ticketID}, function(err,ticket){
+            if (_debug){
+                console.log(ticket);
+            }
+            res.render('checkStatus', {ticket: ticket[0]});
         });
     });
     

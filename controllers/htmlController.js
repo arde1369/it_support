@@ -13,4 +13,7 @@ module.exports = function(app){
     app.get('/admin_index', function(req,res){
         res.render('adminLogin');
     });
+    app.get('/checkStatus', function(req,res){
+        res.render('checkStatus', { ticket: "" });
+    });
 }

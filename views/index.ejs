@@ -32,12 +32,12 @@
                         <!-- ***************************************************************************************** -->
                         <button class="mdl-navigation" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Admin Login</button>
                         <div id="id01" class="modal">
-                            <form class="modal-content animate" action="/api/admin_index">
+                            <form class="modal-content animate" method="POST" action="/api/admin_login">
                             <div class="container">
                                 <label for="username"><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username" name="username" required>
+                                <input type="text" placeholder="Enter Username" name="username" id="username" required>
                                 <label for="psw"><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password" name="password" required>   
+                                <input type="password" placeholder="Enter Password" name="password" id="password" required>   
                                     <button class="btn btn-primary" type="submit">Login</button>
                                 </div>
                                 <div class="container">
